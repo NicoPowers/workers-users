@@ -57,8 +57,9 @@ function handleRegister() {
             displayMessage('register', 'success', 'Registration successful!');
             document.getElementById('registerForm').style.display = 'none';
         })
-        .catch(error => {
-            displayMessage('register', 'error', 'Registration failed: ' + error.message);
+        .catch(error => {            
+            console.log(error)
+            displayMessage('register', 'error', 'Registration Failed: ' + error.message);
         });
 }
 

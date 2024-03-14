@@ -30,6 +30,7 @@
 
 
 import { sendEmail } from './emailHandler';
+import { D1ExecResult, D1Result, D1Response } from "@cloudflare/workers-types"
 
 
 // Hashing algorithm used for securing passwords. Using bcrypt is not practical in a Worker environment.
@@ -73,6 +74,7 @@ export default {
 		} else {
 			switch (lastPath) {
 				case '/register':
+					console.log("Received Register Request")
 					response = await handleRegister(request, env);
 					break
 				case '/login':
@@ -141,10 +143,13 @@ async function handleLoadUser(request: Request, env: Env): Promise<Response> {
 // Processes user registration requests, including validation, password hashing, and database insertion.
 async function handleRegister(request: Request, env: Env): Promise<Response> {
 	try {
-		// Parse user data from the request body
+		// Parse user data from the request body		
 		const regData = await request.json() as RegistrationData;
+		console.log("Received Data")
+		console.log(regData)
 		const { username, password, firstName, lastName } = regData;
 
+				
 		// Basic validation
 		if (!username || !password) {
 			return new Response(JSON.stringify({ error: 'Missing required fields' }), { status: 400 });
@@ -152,9 +157,25 @@ async function handleRegister(request: Request, env: Env): Promise<Response> {
 
 		// Check if the user already exists
 		const checkUserQuery = 'SELECT Username FROM User WHERE Username = ?';
-		const checkUserStmt = await env.usersDB.prepare(checkUserQuery);
-		const existingUser = await checkUserStmt.bind(username).all();
-		if (existingUser.success && existingUser.results.length > 0) {
+		const checkUserStmt = env.usersDB.prepare(checkUserQuery);		
+		console.log("existing user statement")
+		console.log(checkUserStmt)
+		let existingUser;
+		try {
+			existingUser = await checkUserStmt.bind(username).all();
+		}
+		catch (e)
+		{
+			console.log("Received Error")
+			const e_error = e as unknown as Error					
+			if (e_error.message.includes("no such table")) {
+				return new Response(JSON.stringify({ error: 'No User table found; make sure you have ran your database migration with lerna run local_migration' }), { status: 500 });
+			}
+		}
+		
+		console.log("existing user")
+		console.log(existingUser)
+		if (existingUser && existingUser.success && existingUser.results.length > 0) {
 			return new Response(JSON.stringify({ error: 'User already exists' }), { status: 409 });
 		}
 
