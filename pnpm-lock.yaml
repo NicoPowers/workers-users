@@ -60,6 +60,9 @@ importers:
       daisyui:
         specifier: ^4.7.3
         version: 4.7.3(postcss@8.4.35)
+      typed-htmx:
+        specifier: ^0.2.1
+        version: 0.2.1
       wrangler:
         specifier: ^3.0.0
         version: 3.29.0(@cloudflare/workers-types@4.20240314.0)
@@ -7364,6 +7367,18 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
     dev: false
+
+  /typed-html@3.0.1:
+    resolution: {integrity: sha512-JKCM9zTfPDuPqQqdGZBWSEiItShliKkBFg5c6yOR8zth43v763XkAzTWaOlVqc0Y6p9ee8AaAbipGfUnCsYZUA==}
+    engines: {node: '>=12'}
+    dev: true
+
+  /typed-htmx@0.2.1:
+    resolution: {integrity: sha512-n6d1W8raMJ0aS1e7NSmFPXu3PCPJM7/mnG71mK6t01ZKftxBkA8LuIfZ1qN3hBLphj7cxQsoCKdJhgw0LsZB1Q==}
+    engines: {node: '>=12'}
+    dependencies:
+      typed-html: 3.0.1
+    dev: true
 
   /typedarray@0.0.6:
     resolution: {integrity: sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==}

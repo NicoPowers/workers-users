@@ -5,9 +5,17 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Welcome to Astro.">
   <main id="register-main">
     <div class="flex flex-row w-screen h-screen justify-center align-middle">
-      <div class="card shadow-2xl p-10 items-center self-center">
+      <div
+        id="parent-div"
+        class="card shadow-2xl p-10 items-center self-center"
+      >
         <!-- Insert form here -->
-        <form class="flex flex-col space-y-4 w-200" hx-post="/api/register" hx-swap="#register-main">
+        <form
+          class="flex flex-col space-y-4 w-200"
+          hx-post="/partials/clicked/"
+          hx-target="#parent-div"
+          hx-swap="innerHTML"
+        >
           <h1 class="text-2xl mx-auto gap-2">Register</h1>
           <label class="input input-bordered flex items-center gap-2 text-xl">
             Name
@@ -19,12 +27,11 @@ import Layout from "../layouts/Layout.astro";
           </label>
           <!-- Submit button -->
           <button
-            type="submit"                                           
+            type="submit"
             class="btn btn-primary w-full max-w-xs mx-auto text-2xl"
-            >
-            Submit
-          </button
           >
+            Submit
+          </button>
         </form>
       </div>
     </div>

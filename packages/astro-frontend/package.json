@@ -25,6 +25,7 @@
     "@cloudflare/workers-types": "^4.20240314.0",
     "@tailwindcss/typography": "^0.5.10",
     "daisyui": "^4.7.3",
+    "typed-htmx": "^0.2.1",
     "wrangler": "^3.0.0"
   }
 }

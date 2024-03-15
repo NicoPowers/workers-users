@@ -1,0 +1,13 @@
+---
+export const partial = true; // this just happens to be a partial
+import type { AstroGlobal } from "astro/dist/@types/astro";
+const astro: AstroGlobal = Astro;
+// use astro context as needed
+// for example to get form data
+const formData = await astro.request.formData();
+const name = formData.get("name");
+console.log(name);
+console.log(formData.get("name"));
+---
+
+<div>{formData}</div>
