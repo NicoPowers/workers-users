@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import cloudflare from "@astrojs/cloudflare";
+import htmx from "astro-htmx"
 
 import tailwind from "@astrojs/tailwind";
 
@@ -7,9 +8,10 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   output: "server",
   adapter: cloudflare({
+    mode: "advanced",
     runtime: {
       mode: "local"
     }
   }),
-  integrations: [tailwind()]
+  integrations: [tailwind(), htmx()]
 });

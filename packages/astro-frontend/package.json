@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "astro-dev": "astro dev",
+    "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro build && wrangler pages dev ./dist",
@@ -16,6 +16,8 @@
     "@astrojs/cloudflare": "^9.1.0",
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.5.4",
+    "astro-htmx": "^1.0.5",
+    "htmx.org": "^1.9.11",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.4.2"
   },

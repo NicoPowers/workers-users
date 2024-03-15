@@ -38,6 +38,12 @@ importers:
       astro:
         specifier: ^4.5.4
         version: 4.5.4(typescript@5.4.2)
+      astro-htmx:
+        specifier: ^1.0.5
+        version: 1.0.5(astro@4.5.4)(htmx.org@1.9.11)
+      htmx.org:
+        specifier: ^1.9.11
+        version: 1.9.11
       tailwindcss:
         specifier: ^3.4.1
         version: 3.4.1
@@ -2107,6 +2113,16 @@ packages:
     dependencies:
       printable-characters: 1.0.42
 
+  /astro-htmx@1.0.5(astro@4.5.4)(htmx.org@1.9.11):
+    resolution: {integrity: sha512-lTwGy5sMyvp6+O6UiSQEXrEWimRpPi16mMBbQTWUshWrGklCpYbtho6eaZVonFcB9ue7Y7FjTTPiYfp0hUUEuQ==}
+    peerDependencies:
+      astro: '>= 3.0.0'
+      htmx.org: '>= 1.9.0'
+    dependencies:
+      astro: 4.5.4(typescript@5.4.2)
+      htmx.org: 1.9.11
+    dev: false
+
   /astro@4.5.4(typescript@5.4.2):
     resolution: {integrity: sha512-qwMyBn36wXvaCzdCmdbyCxLQGG5hTa3saNdHdqS20Yn1b7Z7oqqcWOb2UjFuq6O8dFqZxU8Hq0/pGFscvsYtJA==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
@@ -3841,6 +3857,10 @@ packages:
 
   /html-void-elements@3.0.0:
     resolution: {integrity: sha512-bEqo66MRXsUGxWHV5IP0PUiAWwoEjba4VCzg0LjFJBpchPaTfyfCKTG6bc5F8ucKec3q5y6qOdGyYTSBEvhCrg==}
+    dev: false
+
+  /htmx.org@1.9.11:
+    resolution: {integrity: sha512-WlVuICn8dfNOOgYmdYzYG8zSnP3++AdHkMHooQAzGZObWpVXYathpz/I37ycF4zikR6YduzfCvEcxk20JkIUsw==}
     dev: false
 
   /http-cache-semantics@4.1.1:
