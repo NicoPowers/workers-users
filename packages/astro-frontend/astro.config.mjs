@@ -11,9 +11,12 @@ export default defineConfig({
     runtime: {
       mode: "local",
       type: 'pages',
-      bindings: {
-        "usersDB": {
-          type: "d1", 
+      bindings: {        
+        "authService": {
+          type: "service",
+          service: "user-mgmt",
+          address: "127.0.0.1:51512",
+
         }
       }
     },

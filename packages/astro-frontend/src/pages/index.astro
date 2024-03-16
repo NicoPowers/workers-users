@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 const runtime = Astro.locals.runtime;
-console.log(runtime.env.usersDB)
+console.log(runtime.env.authService.fetch("https://127.0.0.1/user-api/register"))
 ---
 
 <Layout title="Welcome to Astro.">
