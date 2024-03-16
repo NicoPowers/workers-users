@@ -6,6 +6,15 @@ const name = formData.get("name");
 const email = formData.get("email");
 console.log(name);
 console.log(formData.get("name"));
+const fakeRequest = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve({ name, email });
+  }, 2000);
+});
+await fakeRequest;
 ---
 
-<div>{data.title} {name} {email}</div>
+<div class="alert alert-success">Thank you for your submission, {name}! We will send an email to {email}.</div>
+
+
+
