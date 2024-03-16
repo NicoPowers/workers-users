@@ -1,6 +1,12 @@
 name = "astro-frontend"
 compatibility_date = "2024-03-14"
 
+
+[[d1_databases]]
+binding = "usersDB"
+database_name = "users"
+database_id = "a7d705fc-b603-4872-ae93-5e68b3756fae"
+
 # Variable bindings. These are arbitrary, plaintext strings (similar to environment variables)
 # Note: Use secrets to store sensitive data.
 # Docs: https://developers.cloudflare.com/workers/platform/environment-variables

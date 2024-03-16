@@ -10,6 +10,12 @@ export default defineConfig({
     mode: "advanced",
     runtime: {
       mode: "local",
+      type: 'pages',
+      bindings: {
+        "usersDB": {
+          type: "d1", 
+        }
+      }
     },
   }),
   integrations: [tailwind(), htmx()],

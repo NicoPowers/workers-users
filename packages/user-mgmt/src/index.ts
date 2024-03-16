@@ -183,8 +183,8 @@ async function handleRegister(request: Request, env: Env): Promise<Response> {
 
 		// Store user data in usersDB
 		const insertUserQuery = 'INSERT INTO User (Username, Password, FirstName, LastName) VALUES (?, ?, ?, ?)';
-		const insertUserStmt = await env.usersDB.prepare(insertUserQuery);
-		await insertUserStmt.bind(username, hashedPassword, firstName, lastName).run();
+		const insertUserStmt = env.usersDB.prepare(insertUserQuery);
+		const resp = await insertUserStmt.bind(username, hashedPassword, firstName, lastName).run();
 
 		return new Response(JSON.stringify({ message: 'User registered successfully' }), { status: 201 });
 	} catch (error) {
