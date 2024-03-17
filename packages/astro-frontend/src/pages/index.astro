@@ -2,7 +2,16 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 const runtime = Astro.locals.runtime;
-console.log(await runtime.env.authService.fetch(`${Astro.url.origin}/test`))
+try 
+{
+	const test = await runtime.env.authService.fetch(`${Astro.url.origin}/test`);
+	console.log(test)
+}
+catch (error) 
+{
+	console.error(error);
+
+}
 ---
 
 <Layout title="Welcome to Astro.">
