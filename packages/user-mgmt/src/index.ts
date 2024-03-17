@@ -73,6 +73,9 @@ export default {
 			response = handleOptions(request)
 		} else {
 			switch (lastPath) {
+				case '/test':
+					response = new Response('Test', { status: 200 });
+					break
 				case '/register':
 					console.log("Received Register Request")
 					response = await handleRegister(request, env);
